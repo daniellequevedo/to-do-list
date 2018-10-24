@@ -3,7 +3,15 @@ import React from 'react';
 const ListItem = ({description}) => {
 
     return (
-        <li>{description}</li>
+        <li>
+            <span>
+                {description}
+                &nbsp;
+            </span>
+            <button>
+                delete
+            </button>
+        </li>
     );
 }
 
