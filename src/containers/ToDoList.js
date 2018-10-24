@@ -3,11 +3,11 @@ import ListItem from '../components/ListItem';
 import { connect } from 'react-redux';
 
 function ToDoList({listItems, someAction}) {
-    const toDoItems = [
-        "apples",
-        "bananas",
-        "grapes"
-    ];
+    // const toDoItems = [
+    //     "apples",
+    //     "bananas",
+    //     "grapes"
+    // ];
 
     return (
         // <ul>
@@ -15,11 +15,24 @@ function ToDoList({listItems, someAction}) {
         //         <ListItem item={item} />
         //     )}
         // </ul>
-        <ul>
-            {listItems.map( (item) => 
-                <ListItem item={item} />
-            )}
-        </ul>        
+        <React.Fragment>
+            <h1>To Do List</h1>
+            <ul>
+                {listItems.map( (item) => {
+                    if (!item.complete) {
+                        return <ListItem item={item.description} />
+                    }
+                })}
+            </ul>
+            <h1>Completed</h1>
+            <ul>
+                {listItems.map( (item) => {
+                    if (item.complete) {
+                        return <ListItem item={item.description} />
+                    }
+                })}                
+            </ul>
+        </React.Fragment>
     );
 }
 
