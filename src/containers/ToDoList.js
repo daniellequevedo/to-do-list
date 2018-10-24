@@ -20,7 +20,7 @@ function ToDoList({listItems, someAction}) {
             <ul>
                 {listItems.map( (item) => {
                     if (!item.complete) {
-                        return <ListItem item={item.description} />
+                        return <ListItem description={item.description} />
                     }
                 })}
             </ul>
@@ -28,7 +28,7 @@ function ToDoList({listItems, someAction}) {
             <ul>
                 {listItems.map( (item) => {
                     if (item.complete) {
-                        return <ListItem item={item.description} />
+                        return <ListItem description={item.description} />
                     }
                 })}                
             </ul>
