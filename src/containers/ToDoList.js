@@ -1,26 +1,18 @@
 import React from 'react';
 import ListItem from '../components/ListItem';
 import { connect } from 'react-redux';
+import { deleteListItem } from '../actions';
 
-function ToDoList({listItems, someAction}) {
-    // const toDoItems = [
-    //     "apples",
-    //     "bananas",
-    //     "grapes"
-    // ];
+function ToDoList({ listItems, onDelete }) {
 
     return (
-        // <ul>
-        //     {toDoItems.map( (item) => 
-        //         <ListItem item={item} />
-        //     )}
-        // </ul>
+
         <React.Fragment>
             <h1>To Do List</h1>
             <ul>
                 {listItems.map( (item) => {
                     if (!item.complete) {
-                        return <ListItem description={item.description} />
+                        return <ListItem item={item} key={item.id} onDelete={onDelete} />
                     }
                 })}
             </ul>
@@ -28,7 +20,7 @@ function ToDoList({listItems, someAction}) {
             <ul>
                 {listItems.map( (item) => {
                     if (item.complete) {
-                        return <ListItem description={item.description} />
+                        return <ListItem item={item} key={item.id} onDelete={onDelete} />
                     }
                 })}                
             </ul>
@@ -36,26 +28,20 @@ function ToDoList({listItems, someAction}) {
     );
 }
 
-// export default ToDoList;
-
 const mapStateToProps = state => {
     return {
         listItems: state
     }
 }
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         // onDelete: id => {
-//         //     dispatch(deleteBookmark(id));
-//         }
-//     }
-// }
-
-// export default connect(
-//     mapStateToProps, mapDispatchToProps
-// )(ToDoList);
+const mapDispatchToProps = dispatch => {
+    return {
+        onDelete: id => {
+            dispatch(deleteListItem(id));
+        }
+    }
+}
 
 export default connect(
-    mapStateToProps
+    mapStateToProps, mapDispatchToProps
 )(ToDoList);

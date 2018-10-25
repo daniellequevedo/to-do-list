@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ListItem = ({description}) => {
+const ListItem = ({ item: {id, description, message}, onDelete}) => {
 
     return (
         <li>
@@ -8,7 +8,7 @@ const ListItem = ({description}) => {
                 {description}
                 &nbsp;
             </span>
-            <button>
+            <button type="button" onClick={() => onDelete(id)}>
                 delete
             </button>
         </li>
