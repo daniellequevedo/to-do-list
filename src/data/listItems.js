@@ -1,9 +1,3 @@
-// let listItems = [
-//     "red",
-//     "blue",
-//     "green"
-// ];
-
 let listItems = [
     {
         id: 1,
