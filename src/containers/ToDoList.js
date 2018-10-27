@@ -7,7 +7,7 @@ function ToDoList({ listItems, onDelete, onToggle }) {
 
     return (
 
-        <React.Fragment>
+        <div className="wrapper">
             <h3>To Do List</h3>
             <ul>
                 {listItems.map( (item) => {
@@ -24,7 +24,7 @@ function ToDoList({ listItems, onDelete, onToggle }) {
                     }
                 })}                
             </ul>
-        </React.Fragment>
+        </div>
     );
 }
 
