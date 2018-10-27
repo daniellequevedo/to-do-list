@@ -10,13 +10,16 @@ const ListItem = ({ item: {id, description, message}, checked, onDelete, onToggl
         <li className="list-item">
             <input 
                 type="checkbox"
+                id={`check-complete-${id}`}
                 onChange={() => onToggle(id)}
                 checked={checked}
             />
-            <span className="item-description">
+            <label 
+                className="item-description"
+                for={`check-complete-${id}`}
+            >
                 {description}
-                &nbsp;
-            </span>
+            </label>
             <button className="delete-item" type="button" onClick={() => onDelete(id)}>✖</button>
         </li>
     );

@@ -37,11 +37,13 @@ class NewListItem extends Component {
                     value={this.state.description}
                 />
                 <button
+                    className="add-item"
                     type="submit"
                 >
                     Add
                 </button>
                 <button
+                    className="cancel-item"
                     type="button"
                     onClick={this.handleReset}
                 >

@@ -71,6 +71,12 @@ form button {
   border-radius: 6px;
   cursor: pointer;
 }
+.add-item:hover {
+  background: #83D97C;
+}
+.cancel-item:hover {
+  background: #EF5350;
+} 
 
 /***************/
 /* LIST STYLES */ 
@@ -97,6 +103,8 @@ h3 {
   border: solid 2px #eee;
   background: #fff;
   margin-bottom: 7px;
+
+  /* position: relative; */
 }
 .completed .item-description {
   color: #a9a9a9;
@@ -104,6 +112,7 @@ h3 {
 }
 input[type="checkbox"] {
   cursor: pointer;
+  /* display: none; */
 }
 .list-item:nth-child(1) {
   border-top: solid 2px #eee;
@@ -112,7 +121,37 @@ input[type="checkbox"] {
 .item-description {
   flex-grow: 1;
   margin-left: 5px;
+  
+  /* padding-left: 40px; */
 }
+/* .item-description:before {
+  
+  position: absolute;
+  top: 10px;
+  left: 0;
+    content: "";
+    width: 25px;
+    height: 25px;
+    border-radius: 4px;
+    opacity: 0.5;
+    box-sizing: border-box;
+    border: #999 2px solid;
+    transition: all 0.3s;
+}
+
+
+.item-description:after {
+  content: "✖";
+  font-size: 1.2rem;
+  color: #00a0ff;
+  position: absolute;
+  top: 2px;
+  left: 0;
+  opacity: 0;
+  transition: all 0.3s;
+  text-shadow: 0 5px 40px #0084ff;
+  transform: scale(0.9);
+} */
 
 .delete-item {
   display: flex;
