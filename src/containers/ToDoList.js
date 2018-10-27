@@ -7,9 +7,9 @@ function ToDoList({ listItems, onDelete, onToggle }) {
 
     return (
 
-        <div className="wrapper">
+        <React.Fragment>
             <h3>To Do List</h3>
-            <ul>
+            <ul className="list todos">
                 {listItems.map( (item) => {
                     if (!item.complete) {
                         return <ListItem item={item} key={item.id} onDelete={onDelete} onToggle={onToggle}/>
@@ -17,14 +17,14 @@ function ToDoList({ listItems, onDelete, onToggle }) {
                 })}
             </ul>
             <h3>Completed</h3>
-            <ul>
+            <ul className="list completed">
                 {listItems.map( (item) => {
                     if (item.complete) {
                         return <ListItem item={item} key={item.id} onDelete={onDelete} onToggle={onToggle} checked="checked" />
                     }
                 })}                
             </ul>
-        </div>
+        </React.Fragment>
     );
 }
 

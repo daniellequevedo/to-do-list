@@ -32,11 +32,10 @@ class NewListItem extends Component {
                 <input
                     type="text"
                     name="description"
-                    placeholder="description"
+                    placeholder="Enter a To-Do"
                     onChange={this.handleInputChange}
                     value={this.state.description}
                 />
-                <hr />
                 <button
                     type="submit"
                 >

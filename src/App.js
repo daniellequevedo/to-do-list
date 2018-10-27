@@ -6,7 +6,7 @@ import AddListItem from './containers/AddListItem';
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="wrapper">
         <AddListItem />
         <ToDoList />
       </div>
