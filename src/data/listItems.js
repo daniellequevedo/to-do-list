@@ -15,7 +15,7 @@ let listItems = [
         id: 3,
         description: "Grocery Shop",
         complete: false,
-        isEditing: true        
+        isEditing: false        
     },    
 ];
 
