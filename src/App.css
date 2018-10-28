@@ -63,7 +63,13 @@ form input {
   font-size: 1.1em;
   flex-grow: 1;
 }
+
+/********************/
+/* FORM BUTTON STYLES */ 
+/********************/
 form button {
+  color: #fff;
+  font-weight: bold;
   font-size: 1.1em;
   margin-left: 7px;
   padding: 7px;
@@ -71,16 +77,32 @@ form button {
   border-radius: 6px;
   cursor: pointer;
 }
-.add-item:hover {
+
+.add-item {
   background: #83D97C;
+  box-shadow: 0 5px 40px rgba(131,217,124, 0.4);
+  transition: all 0.5s;
+  border-color: #78c671;
+}
+.cancel-item {
+  background: #EF5350;
+  box-shadow: 0 5px 40px rgba(239, 83, 80, 0.4);
+  transition: all 0.5s;
+  border-color: #d64946;
+} 
+.add-item:hover {
+  background: #78c671;
+  transition: all 0.1s;
+  box-shadow: 0 10px 40px rgba(120, 198, 113, 0.5);
 }
 .cancel-item:hover {
-  background: #EF5350;
-} 
-
-/***************/
-/* LIST STYLES */ 
-/***************/
+  background: #d64946;
+  transition: all 0.1s;
+  box-shadow: 0 10px 40px rgba(214, 73, 70, 0.5);
+}
+/********************/
+/* LIST ITEM STYLES */ 
+/********************/
 
 h3 {
   padding-top: 25px;
@@ -112,16 +134,19 @@ h3 {
 }
 .completed .item-description {
   color: #a9a9a9;
-  /* text-decoration: line-through; */
 }
-input[type="checkbox"] {
-  cursor: pointer;
-  display: none;
-}
+
 .list-item:nth-child(1) {
   border-top: solid 2px #eee;
 }
 
+/********************/
+/* CHECKBOX STYLES */ 
+/********************/
+input[type="checkbox"] {
+  cursor: pointer;
+  display: none;
+}
 .item-description {
   flex-grow: 1;
   margin-left: 5px;
@@ -140,8 +165,6 @@ input[type="checkbox"] {
   border: #999 2px solid;
   transition: all 0.3s;
 }
-
-
 .item-description:after {
   content: "✔︎";
   font-size: 1.9rem;
@@ -164,6 +187,9 @@ input[type="checkbox"]:checked + label:after {
   opacity: 1; left: 15px; transform: none;
 }
 
+/********************/
+/* DELETE BUTTON STYLES */ 
+/********************/
 .delete-item {
   display: flex;
   width: auto;
