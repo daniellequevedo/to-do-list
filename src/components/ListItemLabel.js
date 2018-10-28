@@ -1,27 +1,41 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-// receiving the following from ListItem.js:
-// label description
-const ListItemLabel = ({id, description, isEditing}) => {
-    if (isEditing) {
-        return (
-            <input 
-                type="text"
-                className="item-editing"
-                value={description}  
-            />     
-        );
+class ListItemLabel extends Component {
+
+    state = {
+        description: this.props.description,
+        isEditing: this.props.isEditing
     }
 
-    return (
-        <label 
-            className="item-description"
-            htmlFor={`check-complete-${id}`}
-        >
-            {description}
-        </label>
-    );
+    handleDescriptionChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    };
 
+    render() {
+
+        if (this.props.isEditing) {
+            return (
+                <input 
+                    type="text"
+                    name="description"
+                    className="item-editing"
+                    value={this.props.description} 
+                    // onChange={this.handleDescriptionChange} 
+                />     
+            );
+        }
+
+        return (
+            <label 
+                className="item-description"
+                htmlFor={`check-complete-${this.props.id}`}
+            >
+                {this.props.description}
+            </label>
+        );
+    }
 }
 
 
