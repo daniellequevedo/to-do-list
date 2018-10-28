@@ -13,6 +13,8 @@ class ListItemLabel extends Component {
         });
     };
 
+    
+
     render() {
 
         if (this.props.isEditing) {
@@ -21,8 +23,8 @@ class ListItemLabel extends Component {
                     type="text"
                     name="description"
                     className="item-editing"
-                    value={this.props.description} 
-                    // onChange={this.handleDescriptionChange} 
+                    value={this.state.description} 
+                    onChange={this.handleDescriptionChange} 
                 />     
             );
         }
