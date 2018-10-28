@@ -4,7 +4,7 @@ import React from 'react';
 // item (which then gets destructured into the various properties)
 // a made-up string prop called checked
 // the onDelete and onToggle functions that were previously mapped to dispatch in ToDoList.js
-const ListItem = ({ item: {id, description, message}, checked, onDelete, onToggle }) => {
+const ListItem = ({ item: {id, description, message}, checked, onDelete, onToggle, onEdit }) => {
 
     return (
         <li className="list-item">
@@ -16,11 +16,11 @@ const ListItem = ({ item: {id, description, message}, checked, onDelete, onToggl
             />
             <label 
                 className="item-description"
-                for={`check-complete-${id}`}
+                htmlFor={`check-complete-${id}`}
             >
                 {description}
             </label>
-            <button className="edit-item" type="button">edit</button>
+            <button className="edit-item" type="button" onClick={() => onEdit(id)}>edit</button>
             <button className="delete-item" type="button" onClick={() => onDelete(id)}>✖</button>
         </li>
     );

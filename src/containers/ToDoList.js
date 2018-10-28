@@ -1,9 +1,9 @@
 import React from 'react';
 import ListItem from '../components/ListItem';
 import { connect } from 'react-redux';
-import { deleteListItem, toggleComplete } from '../actions';
+import { deleteListItem, toggleComplete, editListItem } from '../actions';
 
-function ToDoList({ listItems, onDelete, onToggle }) {
+function ToDoList({ listItems, onDelete, onToggle, onEdit }) {
 
     return (
 
@@ -12,7 +12,7 @@ function ToDoList({ listItems, onDelete, onToggle }) {
             <ul className="list todos">
                 {listItems.map( (item) => {
                     if (!item.complete) {
-                        return <ListItem item={item} key={item.id} onDelete={onDelete} onToggle={onToggle}/>
+                        return <ListItem item={item} key={item.id} onDelete={onDelete} onToggle={onToggle} onEdit={onEdit} />
                     }
                 })}
             </ul>
@@ -20,7 +20,7 @@ function ToDoList({ listItems, onDelete, onToggle }) {
             <ul className="list completed">
                 {listItems.map( (item) => {
                     if (item.complete) {
-                        return <ListItem item={item} key={item.id} onDelete={onDelete} onToggle={onToggle} checked="checked" />
+                        return <ListItem item={item} key={item.id} onDelete={onDelete} onToggle={onToggle} onEdit={onEdit} checked="checked" />
                     }
                 })}                
             </ul>
@@ -45,6 +45,9 @@ const mapDispatchToProps = dispatch => {
         onToggle: id => {
             dispatch(toggleComplete(id));
         },
+        onEdit: id => {
+            dispatch(editListItem(id));
+        },        
     }
 }
 

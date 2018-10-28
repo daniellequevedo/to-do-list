@@ -1,4 +1,4 @@
-import { ADD_LIST_ITEM, DELETE_LIST_ITEM, TOGGLE_COMPLETE} from '../actions/types';
+import { ADD_LIST_ITEM, DELETE_LIST_ITEM, TOGGLE_COMPLETE, EDIT_LIST_ITEM} from '../actions/types';
 import initialState from '../data/listItems';
 
 export default function toDoListReducer(state = initialState, action){
@@ -9,14 +9,19 @@ export default function toDoListReducer(state = initialState, action){
         case DELETE_LIST_ITEM: 
             return state.filter(item => item.id !== action.payload.id);
 
-        case TOGGLE_COMPLETE:
-            const newState = [...state];
-            const myObject = newState.find(e => e.id === action.payload.id); 
-            const index = newState.indexOf(myObject);
-            newState[index].complete = !newState[index].complete;
-            return newState;
-                
+        case EDIT_LIST_ITEM:
+            const newEditState = [...state];
+            const editedItem = newEditState.find(e => e.id === action.payload.id); 
+            console.log(editedItem);
+            return state;
 
+        case TOGGLE_COMPLETE:
+            const newToggleState = [...state];
+            const toggledItem = newToggleState.find(e => e.id === action.payload.id); 
+            const index = newToggleState.indexOf(toggledItem);
+            newToggleState[index].complete = !newToggleState[index].complete;
+            return newToggleState;
+                
         default: 
             return state;
     }
