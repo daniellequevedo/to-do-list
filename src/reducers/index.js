@@ -12,8 +12,11 @@ export default function toDoListReducer(state = initialState, action){
         case EDIT_LIST_ITEM:
             const newEditState = [...state];
             const editedItem = newEditState.find(e => e.id === action.payload.id); 
-            console.log(editedItem);
-            return state;
+            
+            const editIndex = newEditState.indexOf(editedItem);
+            console.log(editIndex);
+            newEditState[editIndex].isEditing = !newEditState[editIndex].isEditing;
+            return newEditState;
 
         case TOGGLE_COMPLETE:
             const newToggleState = [...state];

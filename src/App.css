@@ -188,6 +188,15 @@ input[type="checkbox"]:checked + label:after {
   opacity: 1; left: 15px; transform: none;
 }
 
+
+.item-editing {
+  flex-grow: 1;
+  margin: 0px 5px;
+  border: #e3e3e3 2px solid;
+  padding-left: 7px;
+  font-size: 1em;
+}
+
 /********************/
 /* DELETE BUTTON STYLES */ 
 /********************/
@@ -199,9 +208,12 @@ input[type="checkbox"]:checked + label:after {
   background: none;
   font-size: 1.15em;
   cursor: pointer;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 
+.item-description + .delete-item {
+  visibility: hidden;
+}
 
 /********************/
 /* EDIT BUTTON STYLES */ 
@@ -213,8 +225,16 @@ input[type="checkbox"]:checked + label:after {
   background-color: #54bebe;
   font-size: 1em;
   border-radius: 4px;
+  /* visibility: hidden; */
+}
+
+.item-description + .edit-item {
   visibility: hidden;
 }
+
+/********************/
+/* EDIT DELETE BUTTON HOVER STYLES */ 
+/********************/
 
 .list-item:hover .delete-item,
 .list-item:hover .edit-item {

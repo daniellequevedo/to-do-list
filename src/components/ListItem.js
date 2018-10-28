@@ -1,10 +1,11 @@
 import React from 'react';
+import ListItemLabel from '../components/ListItemLabel';
 
 // receiving the following from ToDoList.js:
 // item (which then gets destructured into the various properties)
 // a made-up string prop called checked
 // the onDelete and onToggle functions that were previously mapped to dispatch in ToDoList.js
-const ListItem = ({ item: {id, description, message}, checked, onDelete, onToggle, onEdit }) => {
+const ListItem = ({ item: {id, description, isEditing}, checked, onDelete, onToggle, onEdit }) => {
 
     return (
         <li className="list-item">
@@ -14,12 +15,7 @@ const ListItem = ({ item: {id, description, message}, checked, onDelete, onToggl
                 onChange={() => onToggle(id)}
                 checked={checked}
             />
-            <label 
-                className="item-description"
-                htmlFor={`check-complete-${id}`}
-            >
-                {description}
-            </label>
+            <ListItemLabel id={id} description={description} isEditing={isEditing} />
             <button className="edit-item" type="button" onClick={() => onEdit(id)}>edit</button>
             <button className="delete-item" type="button" onClick={() => onDelete(id)}>✖</button>
         </li>
