@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 
 class NewListItem extends Component {
     state = {
-        description: '',
-        complete: false
+        description: ''
     }
 
     handleInputChange = e => {
