@@ -1,56 +1,52 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addListItem } from '../actions';
 
-class NewListItem extends Component {
-    state = {
-        description: ''
+const NewListItem = () => {
+  const dispatch = useDispatch();
+
+  const [description, setDescription] = useState("");
+
+  const handleInputChange = e => {
+    setDescription(e.target.value);
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (description) {
+      dispatch(addListItem(description.trim()));
+      handleReset();
     }
+  };
 
-    handleInputChange = e => {
-        this.setState({
-            [e.target.name]: e.target.value
-        });
-    };
+  const handleReset = () => {
+    setDescription('');
+  };
 
-    handleSubmit = e => {
-        e.preventDefault();
-        if (this.state.description.trim() && this.state) {
-            this.props.onAddListItem(this.state)
-            this.handleReset();
-        }
-    };
-
-    handleReset = () => {
-        this.setState({
-            description: '',
-        });
-    };
-
-    render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <input
-                    type="text"
-                    name="description"
-                    placeholder="Enter a To-Do"
-                    onChange={this.handleInputChange}
-                    value={this.state.description}
-                />
-                <button
-                    className="add-item"
-                    type="submit"
-                >
-                    Add
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="description"
+        placeholder="Enter a To-Do"
+        onChange={handleInputChange}
+        value={description}
+      />
+      <button
+        className="add-item"
+        type="submit"
+      >
+        Add
                 </button>
-                <button
-                    className="cancel-item"
-                    type="button"
-                    onClick={this.handleReset}
-                >
-                    Cancel
+      <button
+        className="cancel-item"
+        type="button"
+        onClick={handleReset}
+      >
+        Cancel
                 </button>
-            </form>
-        );
-    }
+    </form>
+  );
 }
 
 export default NewListItem;

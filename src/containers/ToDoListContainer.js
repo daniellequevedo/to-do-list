@@ -1,7 +1,8 @@
 import React from 'react';
 import ListItem from '../components/ListItem';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import { deleteListItem, toggleComplete, editListItem } from '../actions';
+import { useSelector, useDispatch } from 'react-redux';
 
 function ToDoList({ listItems, onDelete, onToggle, onEdit }) {
 
@@ -29,29 +30,44 @@ function ToDoList({ listItems, onDelete, onToggle, onEdit }) {
 }
 
 // make our local state match what's in the redux store's state, and refer to it all as "listItems"
-const mapStateToProps = state => {
-    return {
-        listItems: state
-    }
-}
+// const mapStateToProps = state => {
+//     return {
+//         listItems: state
+//     }
+// }
 
 // map the dispatch funcationality to our function properties that were imported from the actions/index.js file
 // and call those functions by other names (onDelete and onToggle)
-const mapDispatchToProps = dispatch => {
-    return {
-        onDelete: id => {
-            dispatch(deleteListItem(id));
-        },
-        onToggle: id => {
-            dispatch(toggleComplete(id));
-        },
-        onEdit: id => {
-            dispatch(editListItem(id));
-        },        
-    }
-}
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         onDelete: id => {
+//             dispatch(deleteListItem(id));
+//         },
+//         onToggle: id => {
+//             dispatch(toggleComplete(id));
+//         },
+//         onEdit: id => {
+//             dispatch(editListItem(id));
+//         },        
+//     }
+// }
 
 // connect this whole file to our state
-export default connect(
-    mapStateToProps, mapDispatchToProps
-)(ToDoList);
+// export default connect(
+//     mapStateToProps, mapDispatchToProps
+// )(ToDoList);
+
+// const ToDoList = () => {
+
+// };
+
+const ToDoListContainer = () => {
+    const listItems = useSelector(state => state);
+    const dispatch = useDispatch();
+    const onDelete = (id) => dispatch(deleteListItem(id));
+    const onToggle = (id) => dispatch(toggleComplete(id));
+    const onEdit = (id) => dispatch(editListItem(id));
+    return <ToDoList listItems={listItems} onDelete={onDelete} onToggle={onToggle} onEdit={onEdit} />
+};
+
+export default ToDoListContainer;
