@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addListItem } from '../actions';
 
-const NewListItem = () => {
+const NewListItem = props => {
   const dispatch = useDispatch();
 
-  const [description, setDescription] = useState("");
+  const [description, setDescription] = useState(undefined);
 
   const handleInputChange = e => {
     setDescription(e.target.value);
