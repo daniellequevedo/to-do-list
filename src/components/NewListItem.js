@@ -5,7 +5,7 @@ import { addListItem } from '../actions';
 const NewListItem = props => {
   const dispatch = useDispatch();
 
-  const [description, setDescription] = useState(undefined);
+  const [description, setDescription] = useState('');
 
   const handleInputChange = e => {
     setDescription(e.target.value);
