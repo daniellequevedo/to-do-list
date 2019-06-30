@@ -66,7 +66,6 @@ const ToDoListContainer = () => {
     const dispatch = useDispatch();
     const onDelete = (id) => dispatch(deleteListItem(id));
     const onToggle = (id) => dispatch(toggleComplete(id));
-    const onEdit = (id) => dispatch(editListItem(id));
     return <ToDoList listItems={listItems} onDelete={onDelete} onToggle={onToggle} onEdit={onEdit} />
 };
 

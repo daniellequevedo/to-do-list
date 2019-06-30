@@ -27,10 +27,11 @@ export const toggleComplete = id => ({
     }
 });
 
-// only the id property is needed to edit the item
-export const editListItem = id => ({
-    type: EDIT_LIST_ITEM,
+// when an existing item is changed
+export const saveListItem = (id, description) => ({
+    type: SAVE_LIST_ITEM,
     payload: {
-        id
+        id,
+        description
     }
 });

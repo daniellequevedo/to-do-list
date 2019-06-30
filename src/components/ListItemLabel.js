@@ -1,43 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-class ListItemLabel extends Component {
+const ListItemLabel = ({ id, onEdit }) => {
+  // get all of the list items
+  const listItems = useSelector(state => state);
 
-    state = {
-        description: this.props.description,
-        isEditing: this.props.isEditing
-    }
+  // use he id to get the list item
+  const selectedListItem = listItems.find(() => {
+    return listItems.id === id;
+  });
 
-    handleDescriptionChange = e => {
-        this.setState({
-            [e.target.name]: e.target.value
-        });
-    };
+  // return jsx
+  return (
+    <React.Fragment>
+      <label className="item-description">
+        {description}
+      </label>
+      <button className="edit-item" type="button" onClick={() => onEdit()}>edit</button>
+    </React.Fragment>
+  );
 
-    
-
-    render() {
-
-        if (this.props.isEditing) {
-            return (
-                <input 
-                    type="text"
-                    name="description"
-                    className="item-editing"
-                    value={this.state.description} 
-                    onChange={this.handleDescriptionChange} 
-                />     
-            );
-        }
-
-        return (
-            <label 
-                className="item-description"
-                htmlFor={`check-complete-${this.props.id}`}
-            >
-                {this.props.description}
-            </label>
-        );
-    }
 }
 
 
