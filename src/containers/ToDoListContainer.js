@@ -1,17 +1,16 @@
 import React from 'react';
 import ListItem from '../components/ListItem';
-// import { connect } from 'react-redux';
-import { deleteListItem, toggleComplete, saveListItem } from '../actions';
+import { deleteListItem, toggleComplete } from '../actions';
 import { useSelector, useDispatch } from 'react-redux';
 
-function ToDoList({ listItems, onDelete, onToggle, onSave }) {
+function ToDoList({ listItems, onDelete, onToggle }) {
   return (
     <React.Fragment>
       <h3>To Do List</h3>
       <ul className="list todos">
         {listItems.map((item) => {
           if (!item.complete) {
-            return <ListItem id={item.id} key={item.id} onDelete={onDelete} onToggle={onToggle} onSave={onSave} />
+            return <ListItem id={item.id} key={item.id} onDelete={onDelete} onToggle={onToggle} />
           }
         })}
       </ul>
@@ -19,7 +18,7 @@ function ToDoList({ listItems, onDelete, onToggle, onSave }) {
       <ul className="list completed">
         {listItems.map((item) => {
           if (item.complete) {
-            return <ListItem id={item.id} key={item.id} onDelete={onDelete} onToggle={onToggle} onSave={onSave} checked="checked" />
+            return <ListItem id={item.id} key={item.id} onDelete={onDelete} onToggle={onToggle} checked="checked" />
           }
         })}
       </ul>
@@ -32,8 +31,7 @@ const ToDoListContainer = () => {
   const dispatch = useDispatch();
   const onDelete = (id) => dispatch(deleteListItem(id));
   const onToggle = (id) => dispatch(toggleComplete(id));
-  const onSave = (id, description) => dispatch(saveListItem(id, description));
-  return <ToDoList listItems={listItems} onDelete={onDelete} onToggle={onToggle} onSave={onSave} />
+  return <ToDoList listItems={listItems} onDelete={onDelete} onToggle={onToggle} />
 };
 
 export default ToDoListContainer;

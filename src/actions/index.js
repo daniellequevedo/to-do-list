@@ -17,7 +17,6 @@ export const deleteListItem = id => ({
     }
 });
 
-
 // only the id property is needed to toggle the item completed
 export const toggleComplete = id => ({
     type: TOGGLE_COMPLETE,
