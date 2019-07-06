@@ -31,7 +31,6 @@ export const saveListItem = (id, description) => ({
     type: SAVE_LIST_ITEM,
     payload: {
         id,
-        description,
-        complete: false
+        description
     }
 });
