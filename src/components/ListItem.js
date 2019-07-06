@@ -11,7 +11,7 @@ const ListItem = ({ item: { id, description }, checked, onDelete, onToggle }) =>
 
   const [isEditing, setIsEditing] = useState(false);
 
-  // when we want to edit the item's description
+  // when we want to edit the item
   let onEdit = () => {
     setIsEditing(true);
   }
