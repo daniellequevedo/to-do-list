@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import ToDoListContainer from './containers/ToDoListContainer';
-import AddListItem from './containers/AddListItem';
 import NewListItem from './components/NewListItem';
 
 function App() {
