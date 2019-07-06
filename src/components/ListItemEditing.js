@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { saveListItem } from '../actions';
 
-const ListItemEditing = ({ id, onCancel, onEdit }) => {
+const ListItemEditing = ({ id, onCancel, onSave }) => {
   // housekeeping
   const dispatch = useDispatch();
 
@@ -22,6 +22,12 @@ const ListItemEditing = ({ id, onCancel, onEdit }) => {
     setDescription(e.target.value);
   }
 
+  // handle saving a change to the description
+  let handleDescriptionSave = e => {
+    onSave(id, description);
+    onCancel(id);
+  }
+
   return (
     <React.Fragment>
       <input
@@ -32,7 +38,7 @@ const ListItemEditing = ({ id, onCancel, onEdit }) => {
         onChange={handleDescriptionChange}
       />
       <button className="edit-item" type="button" onClick={() => onCancel(id)}>cancel</button>
-      <button className="edit-item" type="button" onClick={() => onEdit(id)}>edit</button>
+      <button className="edit-item" type="button" onClick={() => handleDescriptionSave()}>save</button>
     </React.Fragment>
   );
 }
