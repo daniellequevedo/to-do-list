@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ListItemLabel from '../components/ListItemLabel';
 import ListItemEditing from '../components/ListItemEditing';
@@ -7,7 +7,14 @@ import ListItemEditing from '../components/ListItemEditing';
 // item (which then gets destructured into the various properties)
 // a made-up string prop called checked
 // the onDelete and onToggle functions that were previously mapped to dispatch in ToDoList.js
-const ListItem = ({ item: { id, description, isEditing }, checked, onDelete, onToggle, onEdit }) => {
+const ListItem = ({ item: { id, description }, checked, onDelete, onToggle }) => {
+
+  const [isEditing, setIsEditing] = useState(false);
+
+  // when we want to edit the item's description
+  let onEdit = () => {
+    setIsEditing(true);
+  }
 
   return (
     <li className="list-item">
