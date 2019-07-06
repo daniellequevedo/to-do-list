@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 
 const ListItemLabel = ({ id, description, onEdit }) => {
 
+  // state = {
+  //   description: this.props.description,
+  // }
+
   // handleDescriptionChange = e => {
   //   this.setState({
   //     [e.target.name]: e.target.value
