@@ -6,8 +6,7 @@ export const addListItem = description => ({
     payload: {
         id: uuidv4(),
         description,
-        complete: false,
-        isEditing: false
+        complete: false
     }
 });
 
@@ -33,7 +32,6 @@ export const saveListItem = (id, description) => ({
     payload: {
         id,
         description,
-        complete: false,
-        isEditing: false
+        complete: false
     }
 });

@@ -2,20 +2,17 @@ let listItems = [
     {
         id: 1,
         description: "Fold the laundry",
-        complete: true,
-        isEditing: false
+        complete: true
     },
     {
         id: 2,
         description: "Wash the dishes",
-        complete: false,
-        isEditing: false        
+        complete: false       
     },
     {
         id: 3,
         description: "Grocery Shop",
-        complete: false,
-        isEditing: false        
+        complete: false      
     },    
 ];
 
