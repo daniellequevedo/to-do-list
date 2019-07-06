@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { saveListItem } from '../actions';
 
-const ListItemEditing = ({ id, onEdit }) => {
+const ListItemEditing = ({ id, onCancel, onEdit }) => {
   // housekeeping
   const dispatch = useDispatch();
 
@@ -31,6 +31,7 @@ const ListItemEditing = ({ id, onEdit }) => {
         value={description}
         onChange={handleDescriptionChange}
       />
+      <button className="edit-item" type="button" onClick={() => onCancel(id)}>cancel</button>
       <button className="edit-item" type="button" onClick={() => onEdit(id)}>edit</button>
     </React.Fragment>
   );

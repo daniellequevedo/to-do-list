@@ -10,7 +10,7 @@ const ListItemLabel = ({ id, onEdit }) => {
     return listItem.id === id;
   });
 
-  // grab the desciption of the selectedListItem
+  // grab the description of the selectedListItem
   const description = selectedListItem.description;
 
   return (

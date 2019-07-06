@@ -13,7 +13,7 @@ function ToDoList({ listItems, onDelete, onToggle, onEdit }) {
             <ul className="list todos">
                 {listItems.map( (item) => {
                     if (!item.complete) {
-                        return <ListItem item={item} key={item.id} onDelete={onDelete} onToggle={onToggle} onEdit={onEdit} />
+                        return <ListItem id={item.id} key={item.id} onDelete={onDelete} onToggle={onToggle} onEdit={onEdit} />
                     }
                 })}
             </ul>
@@ -21,7 +21,7 @@ function ToDoList({ listItems, onDelete, onToggle, onEdit }) {
             <ul className="list completed">
                 {listItems.map( (item) => {
                     if (item.complete) {
-                        return <ListItem item={item} key={item.id} onDelete={onDelete} onToggle={onToggle} onEdit={onEdit} checked="checked" />
+                        return <ListItem id={item.id} key={item.id} onDelete={onDelete} onToggle={onToggle} onEdit={onEdit} checked="checked" />
                     }
                 })}                
             </ul>

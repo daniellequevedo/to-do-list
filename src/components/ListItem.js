@@ -7,13 +7,18 @@ import ListItemEditing from '../components/ListItemEditing';
 // item (which then gets destructured into the various properties)
 // a made-up string prop called checked
 // the onDelete and onToggle functions that were previously mapped to dispatch in ToDoList.js
-const ListItem = ({ item: { id, description }, checked, onDelete, onToggle }) => {
+const ListItem = ({ id, checked, onDelete, onToggle }) => {
 
   const [isEditing, setIsEditing] = useState(false);
 
   // when we want to edit the item
   let onEdit = () => {
     setIsEditing(true);
+  }
+
+  // when we want to cancel editing the item
+  let onCancel = () => {
+    setIsEditing(false);
   }
 
   return (
@@ -25,8 +30,8 @@ const ListItem = ({ item: { id, description }, checked, onDelete, onToggle }) =>
         checked={checked}
       />
       {isEditing
-      ? <ListItemEditing id={id} description={description} onEdit={onEdit} />
-      : <ListItemLabel id={id} description={description} onEdit={onEdit} />
+      ? <ListItemEditing id={id} onCancel={onCancel} onEdit={onEdit} />
+      : <ListItemLabel id={id} onEdit={onEdit} />
       }
       <button className="delete-item" type="button" onClick={() => onDelete(id)}>✖</button>
     </li>
