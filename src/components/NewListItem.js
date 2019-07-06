@@ -37,14 +37,14 @@ const NewListItem = props => {
         type="submit"
       >
         Add
-                </button>
+      </button>
       <button
         className="cancel-item"
         type="button"
         onClick={handleReset}
       >
         Cancel
-                </button>
+      </button>
     </form>
   );
 }
