@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import ListItemLabel from '../components/ListItemLabel';
 import ListItemEditing from '../components/ListItemEditing';
 
