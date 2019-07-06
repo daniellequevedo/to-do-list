@@ -4,29 +4,29 @@ import ListItem from '../components/ListItem';
 import { deleteListItem, toggleComplete, editListItem } from '../actions';
 import { useSelector, useDispatch } from 'react-redux';
 
-function ToDoList({ listItems, onDelete, onToggle, onEdit }) {
+function ToDoList({ listItems, onDelete, onToggle }) {
 
-    return (
+  return (
 
-        <React.Fragment>
-            <h3>To Do List</h3>
-            <ul className="list todos">
-                {listItems.map( (item) => {
-                    if (!item.complete) {
-                        return <ListItem id={item.id} key={item.id} onDelete={onDelete} onToggle={onToggle} onEdit={onEdit} />
-                    }
-                })}
-            </ul>
-            <h3>Completed</h3>
-            <ul className="list completed">
-                {listItems.map( (item) => {
-                    if (item.complete) {
-                        return <ListItem id={item.id} key={item.id} onDelete={onDelete} onToggle={onToggle} onEdit={onEdit} checked="checked" />
-                    }
-                })}                
-            </ul>
-        </React.Fragment>
-    );
+    <React.Fragment>
+      <h3>To Do List</h3>
+      <ul className="list todos">
+        {listItems.map((item) => {
+          if (!item.complete) {
+            return <ListItem id={item.id} key={item.id} onDelete={onDelete} onToggle={onToggle}  />
+          }
+        })}
+      </ul>
+      <h3>Completed</h3>
+      <ul className="list completed">
+        {listItems.map((item) => {
+          if (item.complete) {
+            return <ListItem id={item.id} key={item.id} onDelete={onDelete} onToggle={onToggle} checked="checked" />
+          }
+        })}
+      </ul>
+    </React.Fragment>
+  );
 }
 
 // make our local state match what's in the redux store's state, and refer to it all as "listItems"
@@ -62,12 +62,12 @@ function ToDoList({ listItems, onDelete, onToggle, onEdit }) {
 // };
 
 const ToDoListContainer = () => {
-    const listItems = useSelector(state => state);
-    const dispatch = useDispatch();
-    const onDelete = (id) => dispatch(deleteListItem(id));
-    const onToggle = (id) => dispatch(toggleComplete(id));
-    // const onEdit = (id) => dispatch(editListItem(id));
-    return <ToDoList listItems={listItems} onDelete={onDelete} onToggle={onToggle} />
+  const listItems = useSelector(state => state);
+  const dispatch = useDispatch();
+  const onDelete = (id) => dispatch(deleteListItem(id));
+  const onToggle = (id) => dispatch(toggleComplete(id));
+  // const onEdit = (id) => dispatch(editListItem(id));
+  return <ToDoList listItems={listItems} onDelete={onDelete} onToggle={onToggle} />
 };
 
 export default ToDoListContainer;
